@@ -7,9 +7,9 @@ import NetworkV2 from "@taikai/dappkit/dist/build/contracts/NetworkV2.json";
 import {findOnABI} from "../utils/find-on-abi";
 import {BlockSniffer} from "../services/block-sniffer";
 
-const router = Router();
+const readRouter = Router();
 
-router.get(`/:chainId/:address/:event`, async (req, res) => {
+readRouter.get(`/:chainId/:address/:event`, async (req, res) => {
   const {chainId, address, event} = req.params;
   const {from, to} = req.eventQuery?.blockQuery!;
 
@@ -49,3 +49,5 @@ router.get(`/:chainId/:address/:event`, async (req, res) => {
   new BlockSniffer(chainIdExists.chainRpc, {[address]: {abi, events}}, from, to, req.eventQuery)
 
 })
+
+export { readRouter };

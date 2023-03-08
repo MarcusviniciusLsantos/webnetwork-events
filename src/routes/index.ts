@@ -1,6 +1,7 @@
 import {Router} from "express";
 
 import {eventsRouter} from "./events.routes";
+import {readRouter} from "./read.router";
 import {seoRoutes} from "./seo.routes";
 
 const router = Router();
